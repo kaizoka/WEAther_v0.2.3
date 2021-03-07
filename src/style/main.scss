@@ -1,0 +1,400 @@
+@import './_var.scss';
+@import './_fonts.scss';
+@import './_static.scss';
+@import './_mixins.scss';
+
+body {
+	min-width: 320px;
+
+	.wrapper {
+		height: 100vh;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.container {
+		padding: 0 20px 0 20px;		
+	}
+
+	.header {
+		background-color: $backgroundHeader;
+		color: $headerColorText;
+
+		&__wrapper {
+			min-height: 80px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.header__input {
+
+
+				.header__formInput {
+
+					.header__inputCity {
+						width: 30px;
+						height: 30px;
+						background: none;
+						border: none;					
+						outline: none;
+						position: relative;
+						transition: .3s linear;
+					}
+
+					.pad:focus {
+					 	padding: 0 35px 0 15px;
+					}						
+
+					hr {
+						height: 3px;
+						margin: 0;
+						padding: 0;
+						background-color: white;
+					}
+
+					.header__inputCity:focus {
+						width: 130px;
+					}					
+
+					.fa-search {
+						width: 32px;
+						height: 35px;
+						position: absolute;
+						right: 20px;
+					}				
+				}	
+			}
+
+			.header__logo {
+
+				.header__logoLink {
+					font-size: $textBig;
+					color: $headerColorText;
+				}
+			}
+		}	
+	}
+
+
+	.contantWeather {
+		padding-top: 30px;
+		font-size: 1.2rem;
+		color: #f3f9fb;
+
+		.contantWeather__weather {
+			width: 250px;
+			height: 350px;
+			position: relative;
+			margin: 0 auto;
+			padding: 10px;
+			background: #87c0cd;
+			border-radius: 50px;
+			text-align: center;
+
+			.contantWeather__nameCity {
+				border-bottom: 3px solid #f3f9fb;
+			}
+
+			.contantWeather__next {
+				padding: 20px 0 0 0;
+
+				.contantWeather__nextFull {
+					float: left;
+				} 
+			}
+		}
+
+		p {
+			color: #dddddd;
+			text-shadow: 0 0 10px;
+			font-size:4vw;
+		}
+	}
+
+	.footer {
+		flex: 0 1 50px;			
+		background: #113f67;
+		padding: 10px 0;
+		color: $backgroundHeader;
+
+		.footer__aboutBy {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;			
+
+			.footer__opeanWeatherURL {
+
+				.footer__openWheatr {
+					height: 40px;
+					width: 80px;
+				}
+			}
+
+			.footer__authorBlock {
+
+				.footer__author {
+
+				}
+			}
+
+			.footer__mode {
+				width: 35px;
+				height: 35px;
+				background-color: #1e212d;
+				border-radius: 100%;
+
+			}
+		}
+	}
+
+	.popup__container {
+		width: 100vw;
+		height: 100vh;
+		background: rgba(000, 000, 000, .5);
+		padding: 10px;
+
+		position: absolute;
+		top: -1;
+
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+
+		span {
+			margin: 0 30px 0 0;
+			font-size: $textSmall;
+			color: #f3f9fb;
+		}
+
+		.popup__arrowAnim {
+			width: 80px;
+			height: 80px;
+			animation: arrowShift 1s infinite;
+		}
+
+		@keyframes arrowShift {
+			0% {
+				transform: translate(0, 0);
+			}
+			70% {
+				transform: translate(-30px, 0);
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	@media (min-width: 640px) {
+		.container {
+			padding: 0 30px 0px 30px;			
+		}
+
+		.header {
+
+			&__wrapper {
+			
+				.header__input {
+
+					.header__formInput {
+
+						.header__inputCity:focus {
+							width: 230px;
+						}	
+
+						.fa-search {
+							width: 32px;
+							height: 35px;
+							position: absolute;
+							right: 30px;
+						}
+					}
+				}
+			}
+		}		
+	}
+
+	@media (min-width: 1000px) {
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 0;		
+		}
+
+		.header {
+			background-color: $backgroundHeader;
+			color: $headerColorText;
+
+			&__wrapper {
+				min-height: 80px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.header__input {
+
+
+					.header__formInput {
+
+						.header__inputCity {
+							width: 230px;
+							height: 35px;
+							padding: 0 15px 0 15px;
+							background: none;
+							border: none;					
+							outline: none;
+							position: relative;
+							transition: .3s linear;
+						}
+
+						.pad:focus {
+							padding: 0 15px 0 15px;
+						}					
+
+						hr {
+							height: 3px;
+							margin: 0;
+							padding: 0;
+							background-color: white;
+						}
+
+						.header__inputCity:focus {			
+							background: rgba(255, 255, 255, .5);
+						}					
+
+						.fa-search {
+							width: 35px;
+							height: 35px;
+							margin: 0 0 0 5px;
+							position: inherit;
+							float: right;
+						}				
+					}	
+				}
+
+				.header__logo {
+
+					.header__logoLink {
+						font-size: $textBig;
+						color: $headerColorText;
+					}
+				}
+			}		
+		}
+
+		.contantWeather {
+			padding-top: 30px;
+			font-size: 1.6rem;
+			color: #f3f9fb;
+
+			.contantWeather__weather {
+				width: 500px;
+				height: 450px;
+				margin: 0 auto;
+				padding: 40px;
+				background: #87c0cd;
+				border-radius: 30px;
+				text-align: center;
+
+				.contantWeather__nameCity {
+					border-bottom: 3px solid #f3f9fb;
+				}
+
+				.contantWeather__next {
+					padding: 50px 0 0 0;
+
+					.contantWeather__nextFull {
+						float: left;
+					}
+
+					.contantWeather__nextButton {
+						background: none;
+						padding: 10px 20px;
+						border: 2px solid #113f67;
+						font-size: 1.2rem;
+						border-radius: 10px;
+						float: right;
+						color: #f3f9fb;
+					}
+
+					.contantWeather__nextButton:hover {
+						background: rgba(255, 255, 255, .3);
+					}	 
+				}
+			}
+		}
+	}
+
+	@media (min-width: 1400px) {
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0;		
+		}
+
+		.header {
+			background-color: $backgroundHeader;
+			color: $headerColorText;
+
+			&__wrapper {
+				min-height: 80px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.header__input {
+
+
+					.header__formInput {
+
+						.header__inputCity {
+							width: 230px;
+							height: 35px;
+							padding: 0 15px 0 15px;
+							background: none;
+							border: none;					
+							outline: none;
+							position: relative;
+							transition: .3s linear;
+						}
+
+						.pad:focus {
+							padding: 0 15px 0 15px;
+						}					
+
+						hr {
+							height: 3px;
+							margin: 0;
+							padding: 0;
+							background-color: white;
+						}
+
+						.header__inputCity:focus {			
+							background: rgba(255, 255, 255, .5);
+						}					
+
+						.fa-search {
+							width: 35px;
+							height: 35px;
+							margin: 0 0 0 5px;
+							position: inherit;
+							float: right;
+						}				
+					}	
+				}
+
+				.header__logo {
+
+					.header__logoLink {
+						font-size: $textBig;
+						color: $headerColorText;
+					}
+				}
+			}		
+		}
+	}			
+}
+
+
