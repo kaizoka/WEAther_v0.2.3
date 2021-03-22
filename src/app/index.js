@@ -1,5 +1,9 @@
 import '../style/main.scss'
 import api from './weatherAPI.js'
+import lS from './localStorage.js'
+import randomCityFromLS from './randomLocalStorageCity.js'
+import modeChecked from './darkSunMode.js' 
+import word from './transliterations.js'
 
 const input = document.getElementById('searchCity')
 
@@ -9,11 +13,20 @@ const mode = document.getElementById('mode')
 
 const popup = document.getElementById('popup')
 
+const checked = document.getElementById('checked')
+
+const wrap = document.querySelector('.header');
+
+let isResizeble = false
+let isDataApi = false
+
 let x1 = null
 let y1 = null
 let positionSum = 0
 let weatherBlock = false
 let popupBool = false
+
+let words = ''
 
 
 input.addEventListener('keydown', e => {
@@ -24,12 +37,18 @@ input.addEventListener('keydown', e => {
 		
 		if(input.value == '') return alert('Please input correct')
 		
-    popupBool = true
-    popupShift()
-		cityValue = firstUperrCase(input.value)
-		api.sendAPI(cityValue, outWeater)
-		input.value = ''
-    weatherBlock = true
+    if(window.screen.width <= 800) { //make screen divace width 
+      popupBool = true
+      popupShift()
+    }
+
+		cityValue = firstUperrCase(word(input.value))
+    api.sendAPI(cityValue, outWeater)
+      .then((data) => {
+          lS(cityValue)
+          input.value = ''
+          weatherBlock = true
+      })
 	}
 })
 
@@ -70,6 +89,7 @@ document.addEventListener('touchstart', swaipTouchWeatherStart, false)
 document.addEventListener('touchmove', swaipTouchWeatherMove, false)
 
 function swaipTouchWeatherStart(e) {
+  isResizeble = false
   const firstTouch = e.touches[0]
   y1 = firstTouch.clientY
   x1 = firstTouch.clientX
@@ -96,11 +116,18 @@ function swaipTouchWeatherMove(e) {
 
         swipe.right = '-' + xDiv + 'px'
          if(xDiv >= 150) {
-            api.sendAPI('Aksay', outWeater)
+            if(!isResizeble) {
+              let city = randomCityFromLS()
+              api.sendAPI(city, outWeater)
+              isResizeble = true
+            }  
          }
 
       }
     }    
   }
-
 }
+
+checked.addEventListener('click', () => {
+  modeChecked(checked.checked, wrap)
+})

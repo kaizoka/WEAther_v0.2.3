@@ -30,12 +30,13 @@ body {
 
 			.header__input {
 
-
 				.header__formInput {
 
 					.header__inputCity {
 						width: 30px;
 						height: 30px;
+						color: $headerColorText;
+						font-size: 1rem;
 						background: none;
 						border: none;					
 						outline: none;
@@ -140,11 +141,61 @@ body {
 			}
 
 			.footer__mode {
-				width: 35px;
-				height: 35px;
-				background-color: #1e212d;
-				border-radius: 100%;
 
+				.footer__switchMode {
+					position: relative;
+  					display: inline-block;
+  					width: 43px;
+ 					height: 29px;
+
+					.footer__switchMode input {display:none;}
+
+					.checkbox {
+
+					}
+
+					.slider {
+						position: absolute;
+  						cursor: pointer;
+  						top: 0;
+  						left: 0;
+  						right: 0;
+  						bottom: 0;
+  						background-color: #3c415c;
+  						border-radius: 34px;
+  						-webkit-transition: .4s;
+  						transition: .4s;
+					}
+
+					.slider:before {
+  						position: absolute;
+  						content: "";
+  						height: 22px;
+  						width: 22px;
+  						left: 2px;
+  						bottom: 4px;
+  						background-color: #fed049;
+  						border-radius: 50%;
+  						-webkit-transition: .4s;
+  						transition: .4s;
+					}
+
+					input:checked + .slider { 												
+  						background-color: #fed049;
+					}
+
+					input:focus + .slider {
+  						box-shadow: 0 0 4px #fed049;
+					}
+
+					input:checked + .slider:before {
+						border-left: 7px solid #d8ebe4;
+						background-color: #3c415c;
+  						-webkit-transform: translateX(18px);
+  						-ms-transform: translateX(18px);
+  						transform: translateX(18px);
+					}
+				}
 			}
 		}
 	}
