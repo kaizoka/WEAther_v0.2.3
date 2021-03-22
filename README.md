@@ -99,15 +99,12 @@ module.exports = {
 
 			{
  				test: /\.(png|jpe?g|gif)$/i,
-<<<<<<< HEAD
         		use: [
           			{
             			loader: 'file-loader',
-=======
         			use: [
           			{
             				loader: 'file-loader',
->>>>>>> d7536fb5f8f9dd10481da6830640e08c6816c2f1
           			},
         		],
 			},
@@ -142,16 +139,12 @@ module.exports = {
 }
 ```
 
-<<<<<<< HEAD
 ## Моё слово
 
 Приятного пользования!
 
-# ~
-=======
 # Моё слово
 
 Приятного пользования!
 
 # ~	
->>>>>>> d7536fb5f8f9dd10481da6830640e08c6816c2f1
