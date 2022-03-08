@@ -2,7 +2,7 @@
 
 Это приложение было созданно для наработке скила, оно выдает информацию о погоде на данный момент, из API сайта [OpenWeatherMap](openweathermap.org), огромное им спасибо за беслплатную информацию.
 
-> Посмотреть приложение можно [тут](weather-version.surge.sh "weather-version.surge.sh")
+> Посмотреть приложение можно [тут](weather-version.surge.sh "weather-version.surge.sh") или `weather-version.surge.sh "weather-version.surge.sh"`
 
 ## Для использования моего преложения на пк: 
 
